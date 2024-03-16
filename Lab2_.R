@@ -72,7 +72,5 @@ myfunc_ex4 <-function(para_a,para_b,para_n){
 		do_lech_chuan=height_var)
  	return(mylist)
 }
-a<-ex4_plants_height[,1]
-b<-ex4_plants_height[,2]
-n<-ex4_plants_height[,3]
+
 myfunc_ex4(a,b,n)
