@@ -55,7 +55,7 @@ for (p in 1:length(age)) {
 index
 
 
------------------------------------------------------
+-----------BAI 4------------------------------------------
 
 setwd('D:/R_lab')
 ex4_plants_height<-read.csv('data11.csv',header=T)
@@ -74,3 +74,19 @@ myfunc_ex4 <-function(para_a,para_b,para_n){
 }
 
 myfunc_ex4(a,b,n)
+
+----------BAI 5------------------------------------
+setwd('D:/R_lab')
+data1<-read.csv('data01.csv',header=T)
+data1
+tb_mau_FPSA<-mean(data1$FPSA)
+phuong_sai_FPSA<-var(data1$FPSA)
+trung_vi_FPSA <-median(data1$FPSA)
+tb_mau_TPSA<-mean(data1$TPSA)
+phuong_sai_TPSA<-var(data1$TPSA)
+trung_vi_TPSA<-median(data1$TPSA)
+#tach nhung gia tri FPSA co K=0 va FPSA co K=1
+FPSA_0<- subset(data1$FPSA,data1$K==0)
+FPSA_0
+FPSA_1<- subset(data1$FPSA,data1$K==1)
+FPSA_1
