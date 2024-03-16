@@ -41,6 +41,23 @@ do_lech_chuan <- sd(x)
 sort(x) #sort increase
 sort(x,T)#sort decrease
 --------BAI 3-----------------------------------
+#CACH 1: using fuction  VECTORIZED
+setwd('D:/R_lab')
+people_age<-read.csv('data01.csv',header=T)
+ age<-people_age[,1]
+fpsa<-people_age[,2]
+tpsa<-people_age[,3]
+k<-people_age[,4]
+
+index <- ifelse(age <= 60, 0,
+         ifelse(age <= 70, 1,
+         ifelse(age <= 80, 2, 3)))
+
+index
+#CACH 2
+
+
+-----------------------------------------------------
 
 setwd('D:/R_lab')
 ex4_plants_height<-read.csv('data11.csv',header=T)
