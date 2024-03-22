@@ -41,20 +41,34 @@ index <- ifelse(age <= 60, 0,
 
 index
 #CACH 2:
-for (p in 1:length(age)) {
-  if (age[p] <= 60) {
-    index[p] <- 0
-  } else if (age[p] > 60 && age[p] <= 70) {
-    index[p] <- 1
-  } else if (age[p] > 70 && age[p] <= 80) {
-    index[p] <- 2
-  } else {
-    index[p] <- 3
-  }
+index<-c()
+for(i in (1:length(people_age$Age)){
+	if(people_age$Age[i] <=60){
+		index[i]<-0 
+	} else if (people_age$Age[i]>60 && people_age$Age[i]<=70){
+		index[i]<-1 
+	} else if (people_age$Age[i]>70&& people_age$Age[i]<=80){
+		index[i] <-2 
+	} else {
+		index[i]<-3 
+	}
+ }
+data.frame(index,people_age$Age)
+
+-----Run------
+index<-c()
+for (i in 1:length(people_age$Age)) {
+    if (people_age$Age[i] <= 60) {
+        index[i] <- 0
+    } else if (people_age$Age[i] > 60 && people_age$Age[i] <= 70) {
+        index[i] <- 1
+    } else if (people_age$Age[i] > 70 && people_age$Age[i] <= 80) {
+        index[i] <- 2
+    } else {
+        index[i] <- 3
+    }
 }
-index
-
-
+data.frame(index,people_age$Age)
 -----------BAI 4------------------------------------------
 
 setwd('D:/R_lab')
