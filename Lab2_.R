@@ -125,12 +125,14 @@ my_func<- function(v,gamma){
   if((gamma*n)%%100==0){
     val<-v_sorted[j]}
   else {
-    i<-  (gamma%/%100)*n
+    i<-  (gamma*n)%/%100
     val<-(v_sorted[i]+v_sorted[i+1])/2}
   return (val)
 }
 v<-c(1,4,2,6,9)
 my_func(v,50)
+
+
 
 
 
