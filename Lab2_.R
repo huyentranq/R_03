@@ -110,9 +110,10 @@ v<- c(-2,-7,1)
 x<-0
 myfunc<- function(v,x){
 val<-0
-for(i in 1:length(v)){
+n<- length(v)
+for(i in 1:n){
 	if(v[i]>=x){
 		val<-val+1 }
 } 
-return (val) }
+return (val/n) }
 myfunc(v,x)
