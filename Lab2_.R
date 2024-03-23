@@ -117,3 +117,17 @@ for(i in 1:n){
 } 
 return (val/n) }
 myfunc(v,x)
+-------BAI 7---------------------------------
+    my_func<- function(v,gammma){
+	n<- length(v)
+	v_sorted <- sort(v,decreasing= F)
+	j<- (gamma/100)*n
+	if((gamma*n)%%100==0){
+		val<-v_sorted[j]}
+	else {
+	i<-  round(j,0)
+	val<-(v_sorted[i]+v_sorted[i+1])/2}
+	return (val)
+}
+v<-c(1,4,2,6,9)
+my_func(v,2)
