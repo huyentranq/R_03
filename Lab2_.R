@@ -104,3 +104,15 @@ FPSA_0<- subset(data1$FPSA,data1$K==0)
 FPSA_0
 FPSA_1<- subset(data1$FPSA,data1$K==1)
 FPSA_1
+
+--------BAI 6---------------------------------------------
+v<- c(-2,-7,1)
+x<-0
+myfunc<- function(v,x){
+val<-0
+for(i in 1:length(v)){
+	if(v[i]>=x){
+		val<-val+1 }
+} 
+return (val) }
+myfunc(v,x)
