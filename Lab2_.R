@@ -131,3 +131,8 @@ myfunc(v,x)
 }
 v<-c(1,4,2,6,9)
 my_func(v,2)
+
+
+
+install.packages("RColorBrewer") //tải thuy viện
+library(RColorBrewer) // lấy file từ thư viện
