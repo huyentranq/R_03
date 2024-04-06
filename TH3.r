@@ -1,3 +1,4 @@
+--------------EX2------------------------------
 setwd('E:/R_lab')
 mydata_ex2<-read.csv('SmartPhoneMarket2022-2023.csv',header=T)
 labels<- mydata_ex2[,1];
