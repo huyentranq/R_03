@@ -28,3 +28,38 @@ labels<-c("oil","coal","gas","renewal energies","nuclear energy","others")
     main="ty trong energy sources")
  par(mfrow = c(1,2)) 
  legend("left",legend=labels,horiz=FALSE,fill=mycol, border="black",cex=1)
+
+-----------------EX4------------------------------------------------------
+labels <- c("A", "B", "C")
+values1 <- c(10, 20, 30)
+values2 <- c(15, 25, 35)
+
+# Vẽ biểu đồ cột chèn
+barplot(rbind(values1, values2), 
+        beside = TRUE,
+        names.arg = labels,
+        cex.name=0.5,
+        col = c("blue", "red"),
+        ylim = c(0, 40),
+        xlab = "Nhãn X",
+        ylab = "Nhãn Y",
+        main = "Biểu đồ cột chèn")
+
+
+setwd('E:/R_lab')
+mydata_ex2<-read.csv('SmartPhoneMarket2022-2023.csv',header=T)
+label1<-mydata_ex2[,2]
+label2<- mydata_ex2[,3]
+names<-mydata_ex2[,1]
+barplot(
+  cex.name=0.8,
+  width=2,
+  rbind(label1,label2),
+  names.arg=names,
+  beside=TRUE,
+  col = c("blue", "red"),
+  ylim = c(0, 100)
+)
+par(mfrow = c(1,1)) 
+legend("topright",legend=c(2022,2023),horiz=FALSE,fill=c("blue", "red"), border="black",cex=1)
+
