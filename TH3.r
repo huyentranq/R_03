@@ -30,7 +30,6 @@ labels<-c("oil","coal","gas","renewal energies","nuclear energy","others")
  par(mfrow = c(1,2)) 
  legend("left",legend=labels,horiz=FALSE,fill=mycol, border="black",cex=1)
 
------------------EX4------------------------------------------------------
 
 --------------------------EX4-------------------------------------------
 
