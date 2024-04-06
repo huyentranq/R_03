@@ -50,7 +50,9 @@ myplot_eg3<-barplot(
 )
 par(mfrow = c(1,1)) 
 legend("topright",legend=c(2022,2023),horiz=FALSE,fill=c("blue", "red"), border="black",cex=1)
-a<- rbind(label1,label2)
+
+## add text vào trên cùng mỗi cột
+a<- rbind(label1,label2) ## tạo matrix 
 for (i in 1:length(a)) {
   text(x = myplot_eg3[i] , y = a[i] + 5, labels = a[i], col = "black", pos = 3,cex.name=0.7)
 }
