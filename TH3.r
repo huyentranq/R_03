@@ -63,3 +63,29 @@ barplot(
 par(mfrow = c(1,1)) 
 legend("topright",legend=c(2022,2023),horiz=FALSE,fill=c("blue", "red"), border="black",cex=1)
 
+--------------------------EX4-------------------------------------------
+
+
+setwd('E:/R_lab')
+mydata_ex2<-read.csv('SmartPhoneMarket2022-2023.csv',header=T)
+label1<-mydata_ex2[,2]
+label2<- mydata_ex2[,3]
+names<-mydata_ex2[,1]
+myplot_eg3<-barplot(
+  cex.name=0.8,
+  width=2,
+  rbind(label1,label2),
+  names.arg=names,
+  beside=TRUE,
+  col = c("blue", "red"),
+  ylim = c(0, 100)
+)
+par(mfrow = c(1,1)) 
+legend("topright",legend=c(2022,2023),horiz=FALSE,fill=c("blue", "red"), border="black",cex=1)
+a<- rbind(label1,label2)
+for (i in 1:length(a)) {
+  text(x = myplot_eg3[i] , y = a[i] + 5, labels = a[i], col = "black", pos = 3,cex.name=0.7)
+}
+
+
+
