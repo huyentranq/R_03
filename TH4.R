@@ -19,3 +19,17 @@ do_lech_chuan<- sqrt(phuong_sai_mau)
 
 
 median(v)
+
+
+BT2----------------------------------------------
+v<- c(0.12,-3.1,-2.05,1.52,2.11,4.8,3.4)
+QuantileMean <- function(v, q) {
+n<- length(v)
+sorted_v <- sort(v)
+  index <- ceiling((q / 100) * n)
+  quantile<- sorted_v[index]
+  return(quantile)
+}
+
+QuantileMean(v,50)
+
