@@ -32,4 +32,11 @@ sorted_v <- sort(v)
 }
 
 QuantileMean(v,50)
+-------------Vẽ boxplot----------------
+boxplot ( FPSA  , border = 'darkgreen ', col ='cornsilk ',horizontal=TRUE,
+ylim = c(0,10) , cex.axis =1)
 
+par(mfrow = c(1,2))
+
+boxplot ( TPSA , border = 'darkgreen ', horizontal=TRUE,col ='cornsilk ',
+ylim = c(0,20) , cex.axis =1)
