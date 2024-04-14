@@ -42,35 +42,93 @@ boxplot ( TPSA , border = 'darkgreen ', horizontal=TRUE,col ='cornsilk ',
 ylim = c(0,20) , cex.axis =1)
 --------------------------EX5------------------------------------------------------------------
 
+Bài 6. File "diesel_engine.dat" và "diesel_time.xls" chứa số liệu về hoạt động của các động cơ chạy bằng
+dầu diesel.
+##(a) Đọc dữ liệu từ hai files này và gán vào hai dataframe đặt cùng tên với tên files.
+Hướng dẫn cách đọc file ".dat" trong : dùng lệnh read.table, chẳng hạn
+
 setwd('D:/R_lab')
-data_ex5<- read.csv('lamphat.csv', header=T)
+diesel_time<-read.csv('diesel_time.csv',header=T)
 
-count_inflation<- function(v,x)
-{
-	count<-0
-	n<-length(v)
-	for( i in(1:n)){
-		if(v[i]>x){
-		count<- count+1 }
+diesel.engine <- read.table('D:/R_Lab/diesel_engine.dat ', header =TRUE , sep ="")
+
+## b ----------------------------------
+## bieen trong diesel_time : timing, delay, temp, press
+## bieen trong diesel.engine : run, speed, load, alcohol
+
+##c -------------------------------------
+(c) Xác định có bao nhiêu dữ liệu bị khuyết (missing data) trong
+ dataframe diesel_engine.
+• Thay thế các giá trị bị khuyết trong biến speed bởi giá trị 1500;
+• Thay thế các giá trị bị khuyết trong biến load bởi giá trị 20;
+
+n<- length(diesel.engine[,1])
+count<-0
+for(i in (1:4)){
+	col<- diesel.engine[,i]
+	for(j in (1:n)){
+		if(is.na(col[j])){
+			count<- count+1
+			if(i==2){
+				col[j]<-1500
+			}
+			else if(i==3){
+				col[j]<-20}
+			
+		}
 	}
-	return(count)
+	diesel.engine[,i]<-col
 }
+print(count)
+print(diesel.engine)
+---------------------------------------------------------------------
+##(d) Tính trung bình mẫu, phương sai mẫu, độ lệch chuẩn mẫu, 
+##giá trị lớn nhất và giá trị nhỏ nhất của biến alcohol trong dataframe diesel_engine.
+alcohol<- diesel.engine$alcohol
+mean(alcohol)
+var(alcohol)
+sd(alcohol)
+min(alcohol)
+max(alcohol)
 
-us<- count_inflation(data_ex5$US,5)
-uk<- count_inflation(data_ex5$UK,5)
-Japan<- count_inflation(data_ex5$Japan,5)
-Germany<- count_inflation(data_ex5$Germany,5)
+-----------------------------------------------------------------------
+##(e) Ghép hai dataframe tạo ở câu (a) thành một dataframe đặt tên là diesel.
+diesel <- cbind(diesel.engine,diesel_time)
+-----------------------------------------------------------------------
+##(f) Trích các giá trị của biến run (số thứ tự các động cơ) mà có
+## thời gian trễ (biến delay) dưới 1000.
+n<- length(diesel$delay)
+delay<- diesel$delay
+run<- diesel$run
+mylist<- list()
+my_data<- c()
+for( i in(1:n)){
+	if(delay[i]<1){
+		my_data<- c(my_data,run[i])
+	}
+}
+print(my_data)
 
-inflation_high <- c(us,uk,Japan,Germany)
+-------------------------------------------------------------------------------
+##(g)Đếm xem có bao nhiêu động cơ có timing bằng 30.
+timing <- diesel$timing
+count<- 0
+n<- length(timing)
+for( i in(1:n)){
+	if(timing[i]==30){
+		count<- count+1
+	}
+}
+print(count)
 
-##trung bình, phương sai, trung vị và sai số chuẩn
-##US
-us <- data_ex5$US
-mean(us) ## trung binh
-var(us) ## phuong sai
-sd(us) ## do lech chuan
+##(h) Vẽ biểu đồ boxplot cho các biến speed, timing và delay.
 
-hist(us, xlim=c(0,15),ylim= c(0,7), breaks=5,border='darkgreen' ,col='red')
+
+
+
+
+
+
 
 
 
