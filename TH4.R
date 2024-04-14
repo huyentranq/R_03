@@ -42,6 +42,10 @@ boxplot ( TPSA , border = 'darkgreen ', horizontal=TRUE,col ='cornsilk ',
 ylim = c(0,20) , cex.axis =1)
 --------------------------EX5------------------------------------------------------------------
 
+
+
+
+
 Bài 6. File "diesel_engine.dat" và "diesel_time.xls" chứa số liệu về hoạt động của các động cơ chạy bằng
 dầu diesel.
 ##(a) Đọc dữ liệu từ hai files này và gán vào hai dataframe đặt cùng tên với tên files.
@@ -122,6 +126,36 @@ for( i in(1:n)){
 print(count)
 
 ##(h) Vẽ biểu đồ boxplot cho các biến speed, timing và delay.
+delay<- diesel$delay
+speed<- diesel$speed
+boxplot(delay, border='darkgreen', col='yellow',ylim=c(0,2))
+boxplot(speed, border='darkgreen', col='yellow',ylim=c(1000,2500))
+
+##(k) Chia phạm vii á trị của biến delay thành bốn đoạn đều nhau và 
+##đếm số dữ liệu nằm trong mỗi đoạn đó. Tạo bảng thống kê và vẽ biểu đồ cột.
+
+delay<- diesel$delay
+n<-length(delay)
+q<- quantile(delay, probs=c(0.25,0.5,0.75))
+result<- rep(0,4)
+for( i in (1:n)){
+	if(delay[i]<=q[1]){
+		result[1]<- result[1]+1
+	}else if((delay[i]>q[1])&&(delay[i]<=q[2])){
+		result[2]<- result[2]+1
+	}else if((delay[i]>q[2])&&(delay[i]<=q[3])){
+		result[3]<- result[3]+1
+	}else{
+		result[4]<- result[4]+1		
+	}
+
+}
+print(result)
+
+
+
+
+
 
 
 
