@@ -70,6 +70,7 @@ mean(us) ## trung binh
 var(us) ## phuong sai
 sd(us) ## do lech chuan
 
+hist(us, xlim=c(0,15),ylim= c(0,7), breaks=5,border='darkgreen' ,col='red')
 
 
 
