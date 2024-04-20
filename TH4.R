@@ -135,23 +135,24 @@ boxplot(speed, border='darkgreen', col='yellow',ylim=c(1000,2500))
 ##đếm số dữ liệu nằm trong mỗi đoạn đó. Tạo bảng thống kê và vẽ biểu đồ cột.
 
 delay<- diesel$delay
-n<-length(delay)
-q<- quantile(delay, probs=c(0.25,0.5,0.75))
-result<- rep(0,4)
-for( i in (1:n)){
-	if(delay[i]<=q[1]){
-		result[1]<- result[1]+1
-	}else if((delay[i]>q[1])&&(delay[i]<=q[2])){
-		result[2]<- result[2]+1
-	}else if((delay[i]>q[2])&&(delay[i]<=q[3])){
-		result[3]<- result[3]+1
-	}else{
-		result[4]<- result[4]+1		
-	}
-
-}
-print(result)
-
+n<- length(delay)
+min<- min(delay)
+max<- max(delay)
+dx<- (max-min)/4
+results<-rep(1,4)
+  for(i in(1:n))
+  {
+    if(delay[i]<= (min+dx)){
+      results[1]<-results[1]+1
+    }else if((delay[i]> (min+dx))&&(delay[i]<= (min+2*dx))){
+      results[2]<-results[2]+1
+    }else if((delay[i]> (min+2*dx))&&(delay[i]<= (min+3*dx))){
+      results[3]<-results[3]+1
+    }else
+    {
+      results[4]<-results[4]+1
+    }
+  }
 
 
 
