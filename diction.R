@@ -18,6 +18,7 @@ matrix(v,nrow=3,byrow=T)
 
  diag(A)<- 1 ## các phần tử trên đường chéo bằng 1
 
+## định thwucs ma trận : det()
 
 
 
