@@ -64,3 +64,6 @@ z_score <- (value - mean(data)) / sd(data)
 if (abs(z_score) > 3) {
   # Giá trị ngoại lai
 }
+## hàm quantile
+quantile(data, probs, na.rm = FALSE)
+quantile(v,probs= c(25,50))
