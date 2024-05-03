@@ -52,3 +52,15 @@ my_func<- function(v,q){
 v<- c(1,2,3,4,5,6,7,8,9)
 q<-25
 my_func(v,q)
+
+
+
+-------------
+Xác định giá trị ngoại lai
+
+
+z_score <- (value - mean(data)) / sd(data)
+
+if (abs(z_score) > 3) {
+  # Giá trị ngoại lai
+}
