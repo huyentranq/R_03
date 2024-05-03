@@ -30,3 +30,25 @@ for(i in(1:n)){
 
 
 my_plot[2]
+
+-------Phan vi mau muc q%  ------------------------------------
+
+#phân vi mau muc q% cua vecto v
+my_func<- function(v,q){
+	n<- length(v)
+	v_sorted<- sort(v)
+	j<- (q/100)*n
+	if((q*n)%/%100==0){
+		val<- v_sorted[j]
+	}	
+	else{
+		i<- (q*n)/100
+		val<- (v_sorted[i]+v_sorted[i+1])/2
+	}
+	return(val)
+
+}
+
+v<- c(1,2,3,4,5,6,7,8,9)
+q<-25
+my_func(v,q)
