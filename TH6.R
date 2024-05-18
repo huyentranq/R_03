@@ -1,3 +1,16 @@
+Lý thuyết
+type="..." 
+      + l : line
+      + p : points
+      + b : 
+lty= 1 : nét liền / 2: nét đứt
+lwd : độ đậm
+pch= ..(số từu 1--> 18) .. : vẽ điểm, số: hình dạng điểm 
+bg= "green" : tô màu nền bên trong
+
+
+
+
 myfunc<- function(x){
   (exp(-x^2/2))/sqrt(2*pi)
 }
