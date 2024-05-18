@@ -52,22 +52,24 @@ lines (x , y, ylim=c(min(k),max(k)+1) , type = "l", xlab ="x", ylab ="f(x)",
        col ='blue3', lty =1, lwd = 1)
 
 ##Bai 3
-n <- nrow(mtcars)
-Sxy <- sum(mtcars$wt * mtcars$mpg) - sum(mtcars$wt) * sum(mtcars$mpg) / n
-Sxx <- sum(mtcars$wt^2) - sum(mtcars$wt)^2 / n
-
-# Ước lượng các hệ số
-B1 <- Sxy / Sxx
-B0 <- mean(mtcars$mpg) - B1 * mean(mtcars$wt)
-
-x<- seq(min(mtcars$wt),max(mtcars$wt),by=0.05)
-y<- function(x_p){
-  B0+B1*x_p
+mtcars
+y<- mtcars$mpg
+x<- mtcars$wt
+n<- length(mpg)
+Sxy<- sum(x*y)-sum(x)*sum(y)/n
+Sxx<- sum(x^2)- sum(x)^2/n
+B1<- Sxy/Sxx
+B0<- mean(y)-B1*mean(x)
+## pt hoi quy tuyen tinh
+y<- function(x_para) ## luu y: ham khong duoc de bien x( trung voi bien ben tren)
+{
+	B0+B1*x_para
 }
-k<-sapply(seq( 0,5,by=0.1) , y )
+## ve plot
+plot(mtcars$wt,mtcars$mpg,main="Scatter plot example",xlab="car weight",
+	ylab="Miles Per Gallon", pch=1, lwd=1.75, cex=1.2,
+	col ='dodgerblue ', bg ='white ')
+## ve them pt hoi quy
+x<- seq(min(x),max(x),by=0.1)
+lines(x, y(x),ylim=c(10,35),type="l",col="blue",lwd=3 )
 
-plot ( mtcars$wt , mtcars$mpg , main =" Scatterplot Example ",
-       xlab =" Car Weights ", ylab =" Miles Per Gallon ", pch =1,
-       col ='dodgerblue ', bg ='white ', lwd =1.75, cex =1.2)
-lines (x ,y(x),ylim=c(10,30) , type = "l", xlab ="x", ylab ="f(x)",
-       col ='blue3', lty =1, lwd = 1)
