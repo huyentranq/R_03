@@ -63,8 +63,10 @@ I
 
 %% Cau 4
 %4a
-y=dsolve('Dy=1-y','y(0)=1')
-plot(y)
+f=dsolve('Dy=1-y','y(0)=1')
+x_tmp=-5:0.1:5
+y_sub= subs(f,x_tmp)
+plot(x_tmp,y_sub)
 %4b
 f=dsolve('(x^2+1)*Dy+3*x*(y-1)=0','y(0)==2','x')
 x_tmp= -5:0.1:5
