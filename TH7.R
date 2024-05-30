@@ -113,3 +113,7 @@ axis(side=2, at = seq(0,600,30),labels = seq(0,600,30), las =1 )
 ## las : hướng đặt của label
  las=2 : hướng vuông góc với trục
  las= 1: song song với trục
+
+## Biểu đồ phân tán
+plot( mysubdata_ex2 , col ="darkgreen", lwd =2.5, main ="",lty=1,
+       col.axis ='orange2', col.lab ='darkgreen ', cex.axis =1.2)
