@@ -33,8 +33,7 @@ disp('2.b')
 syms x y
 y3=x-x^3;
 f= x^2+2*y;
-disp('nghiem cua phuong trinh hoanh do giao diem: ')
-x_tmp=solve(y3)
+x_tmp=solve(y3);
 int(int(f,y,x,x^3),x,0,1)
 
 
