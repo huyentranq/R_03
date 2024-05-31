@@ -55,13 +55,13 @@ lines (x , y, ylim=c(min(k),max(k)+1) , type = "l", xlab ="x", ylab ="f(x)",
 mtcars
 y<- mtcars$mpg
 x<- mtcars$wt
-n<- length(mpg)
+n<- length(y)
 Sxy<- sum(x*y)-sum(x)*sum(y)/n
 Sxx<- sum(x^2)- sum(x)^2/n
 B1<- Sxy/Sxx
 B0<- mean(y)-B1*mean(x)
 ## pt hoi quy tuyen tinh
-y<- function(x_para) ## luu y: ham khong duoc de bien x( trung voi bien ben tren)
+myfunc<- function(x_para) ## luu y: ham khong duoc de bien x( trung voi bien ben tren)
 {
 	B0+B1*x_para
 }
@@ -71,5 +71,10 @@ plot(mtcars$wt,mtcars$mpg,main="Scatter plot example",xlab="car weight",
 	col ='dodgerblue ', bg ='white ')
 ## ve them pt hoi quy
 x<- seq(min(x),max(x),by=0.1)
-lines(x, y(x),ylim=c(10,35),type="l",col="blue",lwd=3 )
+
+## phuong trinh hoi quy
+lines(x, myfunc(x),ylim=c(10,35),type="l",col="blue",lwd=3 )
+
+## uoc luong diem gia tri
+points (2.5, myfunc(2.5) , pch =10,col = 'green 3', lwd =2, cex =1.2)
 
