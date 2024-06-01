@@ -1,3 +1,4 @@
+Bai1
 
 setwd('E:/R')
 data<- read.csv('Apple-revenue-1992-2023.csv',header= T)
@@ -15,7 +16,7 @@ myplot <- barplot ( revenue , border = NA , col = 'lightblue ',
 barplot(change_rate , border = 'darkgreen ', bty="n",
           ylim =c(min ( change_rate)-0.2,max ( change_rate )+0.2) , axes = F)
 
-##
+##Bai 3
 setwd('E:/R')
 ex3<- read.csv('AirPassengers.csv',header= T)
 // chọn start, end theo cột dữ liệu
