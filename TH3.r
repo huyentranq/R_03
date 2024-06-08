@@ -59,5 +59,19 @@ for (i in 1:length(a)) {
 }
 
 
+----------------------------EX5----------------------
+v1<- c(326.24, 252.20, 893.62, 458.28)
+v2<- c(770.09, 73.68, 884.78, 1168.88)
+mydata<- rbind(v1,v2)
+days_names<- c("Thursday","Friday", "Saturday", "Sunday")
+mycol_eg3 = c("lavender","cornsilk")
+myplot_eg3 <- barplot(mydata , names.arg = days_names , beside=TRUE ,
+ col = mycol_eg3,ylab ="Total bills($)", border ="darkgreen",
+ ylim = c(0,max ( mydata )+100))
+
+for (i in 1:length(mydata)) {
+  text(x = myplot_eg3[i] , y = mydata[i] + 3, labels = mydata[i],
+ col = "black", pos = 3,cex.name=0.7)
+}
 
 
