@@ -34,28 +34,30 @@ labels<-c("oil","coal","gas","renewal energies","nuclear energy","others")
 --------------------------EX4-------------------------------------------
 
 
-setwd('E:/R_lab')
-mydata_ex2<-read.csv('SmartPhoneMarket2022-2023.csv',header=T)
-label1<-mydata_ex2[,2]
-label2<- mydata_ex2[,3]
-names<-mydata_ex2[,1]
+setwd('D:/R_lab')
+mydata_ex4<-read.csv('SmartPhoneMarket2022-2023.csv',header=T)
+data_2023<- mydata_ex4$Proportion_2023
+data_2022<- mydata_ex4$Proportion_2022
+names<-mydata_ex4$Companies
 myplot_eg3<-barplot(
   cex.name=0.8,
   width=2,
-  rbind(label1,label2),
+  rbind(data_2022,data_2023),
   names.arg=names,
   beside=TRUE,
-  col = c("blue", "red"),
+  col=c("lavender","cornsilk"),
   ylim = c(0, 100)
 )
-par(mfrow = c(1,1)) 
-legend("topright",legend=c(2022,2023),horiz=FALSE,fill=c("blue", "red"), border="black",cex=1)
 
-## add text vào trên cùng mỗi cột
-a<- rbind(label1,label2) ## tạo matrix 
+legend("topright",legend=c(2022,2023),horiz=FALSE,fill=my_col,
+ border="black",cex=1.5)
+
+## add text
+a<-rbind(data_2022,data_2023) ## tạo matrix 
 for (i in 1:length(a)) {
-  text(x = myplot_eg3[i] , y = a[i] + 5, labels = a[i], col = "black", pos = 3,cex.name=0.7)
+  text(x = myplot_eg3[i] , y = a[i] + 3, labels = a[i], col = "black", pos = 3,cex.name=0.7)
 }
+
 
 
 
