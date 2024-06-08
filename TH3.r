@@ -1,18 +1,18 @@
 --------------EX2------------------------------
-setwd('E:/R_lab')
-mydata_ex2<-read.csv('SmartPhoneMarket2022-2023.csv',header=T)
-labels<- mydata_ex2[,1];
-data_2022<-mydata_ex2[,2];
- 
-data_2023<- mydata_ex2[,3]
-mycol<-c("white","green","purple","violet","brown","red")
-pie(data_2023,labels=data_2023,radius=1,col=mycol,init.angle=90,main='tỉ trọng năm 2023')
-pie(data_2022,labels=data_2022,radius=1,col=mycol,init.angle=90,main='tỉ trọng năm 2022')
+setwd('D:/R_lab')
+mydata_ex2<- read.csv('SmartPhoneMarket2022-2023.csv',header=T)
+data_2023<- mydata_ex2$Proportion_2023
+data_2022<- mydata_ex2$Proportion_2022
+my_col<- c("lavender", "lightblue", "mistyrose", "cornsilk","orange 3",
+"lightcyan")
+par(mfrow = c(1,3))
+pie(data_2023, labels= seq(1,6),col= my_col, radius= 2, init.angle=90,
+main='tỉ trọng năm 2023')
+pie(data_2022, labels= seq(1,6),col= my_col, radius= 2, init.angle=90,
+main='tỉ trọng năm 2022')
+par(mfrow = c(1,3))
+legend('left',legend= mydata_ex2$Companies, fill= my_col,horiz= F,cex=2)
 
-par(mfrow = c(1,3)) ##chia bảng thành 3 phẦN
-
-##tạo chú thích
-legend("left",legend=labels,horiz=FALSE,fill=mycol, border="black",cex=1.5)
 
 
 ---------------EX3---------------------------------------
