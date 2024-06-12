@@ -1,24 +1,43 @@
-v<- c(0.12,-3.1,-2.05,1.52,2.11,4.8,3.4)
-n<- length(v)
-sum <-0
-for(i in (1:n)){
-	sum<- sum + v[i]
+##Dùng công thức lý thuyết tính trung bình mẫu, phương sai mẫu, độ lệch chuẩn mẫu và trung vị mẫu
+##của v.
+## TB mau: mean(v)
+MeanSample<- function(v){
+	val<- sum(v)/length(v)
+	return(val)
 }
-trung_binh_mau <- sum/n
-##mean(v)
-tong<-0
-for(i in (1:n)){
-	tong<- tong +(v[i]-trung_binh_mau)^2
+VarSample<- function(v){
+	n<- length(v)
+	Mean<- MeanSample(v)
+	sum<- 0
+	for(i in 1:n){
+		sum<- sum+(v[i]-Mean)^2
+	}
+	Var<- sum/(n-1)
+	return(Var)
 }
-phuong_sai_mau <- tong/(n-1)
-## var(v)
+VarSample(v)
+var(v)
+## Tinh phan vi
+QuantileSample<- function(v,q){
+	v_sorted<- sort(v)
+	n<- length(v)
+	val<-0
+	index<- n*q/100
+	if((n*q)%%100==0){
+		val<- v[index]}
+	else{
+		j<- n*q/100
+		val<- (v[j]+v[j+1])/2
+	}
+	return(val)
+}
+##phuong_sai_mau 
+var(v)
 
-
-do_lech_chuan<- sqrt(phuong_sai_mau)
-##sd(v)
-
-
-median(v)
+## do_lech_chuan
+sd(v)
+## Trung vi: 
+mean()
 
 
 BT2----------------------------------------------
