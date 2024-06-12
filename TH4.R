@@ -59,6 +59,18 @@ par(mfrow = c(1,2))
 
 boxplot ( TPSA , border = 'darkgreen ', horizontal=TRUE,col ='cornsilk ',
 ylim = c(0,20) , cex.axis =1)
+---------EX3---------------------------------------
+setwd('D:/R_lab')
+data01<- read.csv('data01.csv',header=T)
+par(mfrow = c(1,2))
+boxplot(data01$FPSA, border = 'darkgreen ', col ='cornsilk',horizontal= T,
+ylim = c(0,20) , cex.axis =1, xaxt = 'n')
+##xaxt= 'n' : khong hien thi gia tri truc x
+## them truc gia tri theo khoang chia
+axis(side = 1, at = seq(0, 20, by = 2))
+
+boxplot(data01$TPSA, border = 'darkgreen ', col ='cornsilk',horizontal= T,
+ylim = c(0,120) , cex.axis =1)
 --------------------------EX5------------------------------------------------------------------
 
 
