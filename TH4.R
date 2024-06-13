@@ -129,10 +129,13 @@ max(alcohol)
 
 -----------------------------------------------------------------------
 ##(e) Ghép hai dataframe tạo ở câu (a) thành một dataframe đặt tên là diesel.
-diesel <- cbind(diesel.engine,diesel_time)
+diesel<- data.frame(diesel_engine,diesel_time)
 -----------------------------------------------------------------------
 ##(f) Trích các giá trị của biến run (số thứ tự các động cơ) mà có
 ## thời gian trễ (biến delay) dưới 1000.
+##Cách 1:
+subset(diesel$run, diesel$delay<1)
+##CÁCH 2
 n<- length(diesel$delay)
 delay<- diesel$delay
 run<- diesel$run
@@ -144,6 +147,8 @@ for( i in(1:n)){
 	}
 }
 print(my_data)
+
+
 
 -------------------------------------------------------------------------------
 ##(g)Đếm xem có bao nhiêu động cơ có timing bằng 30.
