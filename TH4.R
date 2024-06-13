@@ -97,24 +97,25 @@ diesel.engine <- read.table('D:/R_Lab/diesel_engine.dat ', header =TRUE , sep ="
 • Thay thế các giá trị bị khuyết trong biến speed bởi giá trị 1500;
 • Thay thế các giá trị bị khuyết trong biến load bởi giá trị 20;
 
-n<- length(diesel.engine[,1])
-count<-0
-for(i in (1:4)){
-	col<- diesel.engine[,i]
-	for(j in (1:n)){
-		if(is.na(col[j])){
-			count<- count+1
+diesel_engine <- read.table('D:/R_Lab/diesel_engine.dat ', header =TRUE , sep ="")
+n<- length(diesel_engine$run)
+m<- length(diesel_engine)## m=4
+dem_NA<-0
+for(i in 1:m){
+	for(j in 1:n){
+		if(is.na(diesel_engine[j,i])){
+			dem_NA<- dem_NA+1
 			if(i==2){
-				col[j]<-1500
-			}
-			else if(i==3){
-				col[j]<-20}
-			
+				diesel_engine[j,i]=1500
+				}
+			if(i==3){
+			diesel_engine[j,i]=20}
 		}
 	}
-	diesel.engine[,i]<-col
+	
+
 }
-print(count)
+print(dem_NA)
 print(diesel.engine)
 ---------------------------------------------------------------------
 ##(d) Tính trung bình mẫu, phương sai mẫu, độ lệch chuẩn mẫu, 
