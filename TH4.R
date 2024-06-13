@@ -170,49 +170,36 @@ delay<- diesel$delay
 speed<- diesel$speed
 boxplot(delay, border='darkgreen', col='yellow',ylim=c(0,2))
 boxplot(speed, border='darkgreen', col='yellow',ylim=c(1000,2500))
-
+----------------------------------------------------------------
 ##(k) Chia phạm vii á trị của biến delay thành bốn đoạn đều nhau và 
 ##đếm số dữ liệu nằm trong mỗi đoạn đó. Tạo bảng thống kê và vẽ biểu đồ cột.
+
 
 delay<- diesel$delay
 n<- length(delay)
 min<- min(delay)
 max<- max(delay)
 dx<- (max-min)/4
-results<-rep(1,4)
+results<-rep(0,4)
+khoang_gt<- seq(min,max,dx)
   for(i in(1:n))
   {
-    if(delay[i]<= (min+dx)){
+    if(delay[i]< khoang_gt[2]){
       results[1]<-results[1]+1
-    }else if((delay[i]> (min+dx))&&(delay[i]<= (min+2*dx))){
+    }else if(delay[i]<=khoang_gt[3]){
       results[2]<-results[2]+1
-    }else if((delay[i]> (min+2*dx))&&(delay[i]<= (min+3*dx))){
+    }else if(delay[i]<=khoang_gt[4]){
       results[3]<-results[3]+1
     }else
     {
       results[4]<-results[4]+1
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+mycol <- c("lavender", "lightblue", "mistyrose", "cornsilk")
+values <-c("[0.28,0.6)","[0.6,0.9)","[0.9,1.23)","[1.23,1.55]")
+## Tao bang thong ke
+new_data<- data.frame(values,results)
+barplot ( results , names.arg = new_data$values , cex.names =1.5, col = mycol)
 
 
 
