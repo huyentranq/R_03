@@ -152,6 +152,9 @@ print(my_data)
 
 -------------------------------------------------------------------------------
 ##(g)Đếm xem có bao nhiêu động cơ có timing bằng 30.
+##Cách 1:
+length(subset(diesel$timing, diesel$timing==30))
+##C2
 timing <- diesel$timing
 count<- 0
 n<- length(timing)
@@ -161,7 +164,7 @@ for( i in(1:n)){
 	}
 }
 print(count)
-
+--------------------------------------------------------------
 ##(h) Vẽ biểu đồ boxplot cho các biến speed, timing và delay.
 delay<- diesel$delay
 speed<- diesel$speed
